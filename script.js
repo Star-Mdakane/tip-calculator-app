@@ -50,6 +50,8 @@ const calcOutputs = () => {
     // the inputs
     const billInput = document.querySelector("#bill");
     const peopleInput = document.querySelector("#people");
+    const customInput = document.querySelector("#custom");
+
 
     // the outputs
     const tipAmount = document.querySelector("#tip-amount");
@@ -61,6 +63,9 @@ const calcOutputs = () => {
     // grabbing the values of the inpputs
     const billVal = Number(billInput.value);
     const tipOption = document.querySelectorAll("input[name='tip']");
+    const radio = document.querySelectorAll("input[name='radio]");
+
+
     let tipVal = 1;
     tipOption.forEach((val) => {
         if (val.checked) {
@@ -73,6 +78,18 @@ const calcOutputs = () => {
     })
     const peopleVal = Number(peopleInput.value);
 
+    customInput.addEventListener('focus', () => {
+        document.querySelectorAll('input[type="radio"]').forEach(check => check.checked = false);
+    })
+
+    radio.forEach(r => {
+        r.addEventListener('change', () => {
+            if (r.checked) {
+                document.querySelector("#custom").placeholder = 'Custom';
+            }
+        })
+    })
+
     totBill = calculateTip(billVal, tipVal, peopleVal);
     totAmount = calculateTotal(billVal, tipVal, peopleVal);
 
@@ -84,42 +101,41 @@ const calcOutputs = () => {
 
 }
 
-// calcOutputs()
 const inputs = document.querySelectorAll("input");
 inputs.forEach((input) => {
-    input.addEventListener("blur", calcOutputs)
+    input.addEventListener("blur", calcOutputs);
 })
-
-
 
 // events
 
+peopleInput.addEventListener('blur', () => {
+    const error = document.querySelector("#error");
+    console.log(peopleInput.value)
+    if (Number(peopleInput.value) === 0) {
+        error.textContent = "Can't be zero";
+        reset.disabled = true;
+    } else {
+        error.textContent = " ";
+        reset.disabled = false;
+
+    }
+
+})
 
 
 form.addEventListener("submit", (e) => {
     let isValid = true;
 
     const reset = document.querySelector("#reset");
-    const peopleInput = document.querySelector("#people");
-    const err = form.querySelector("#error")
-
-
-    if (peopleInput.value === 0) {
-        err.textContent = "Can't be zero";
-        e.preventDefault();
-
-    } else {
-        err.textContent = " ";
-
-    }
 
     const inputs = form.querySelectorAll('input[type=text]');
     console.log(inputs)
     inputs.forEach((input) => {
         if (!validateField(input)) {
-            rendorError(input)
+            rendorError(input);
             isValid = false;
         }
+        clearError(input)
     })
 
     if (isValid) {

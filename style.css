@@ -70,7 +70,6 @@ header {
     gap: 32px;
     max-width: 90rem;
     min-width: 15.6rem;
-
     margin: 0 auto;
 }
 
@@ -173,11 +172,13 @@ fieldset legend {
 
 .number span {
     position: absolute;
+    display: inline-block;
     right: 0;
     margin-right: 32px;
     color: var(--error);
-
 }
+
+
 
 .number {
     position: relative;
@@ -329,9 +330,28 @@ input[type='radio'] {
     width: 100%;
 }
 
+.reset:disabled {
+    cursor: default;
+    color: var(--gn-800);
+    background-color: var(--gn-750);
+    border: 3px solid var(--gn-750);
+}
+
+.reset:hover {
+    cursor: pointer;
+    color: var(--gn-900);
+    background-color: var(--gn-200);
+    border: 3px solid var(--gn-200);
+}
+
 
 
 @media(min-width: 768px) {
+
+    main {
+        width: 100vw;
+    }
+
     .wrapper {
         flex-direction: row;
         border: 1rem;

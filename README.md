@@ -59,7 +59,9 @@ I am scraping everything I have done and lookig at a new approach but still I do
 
 Still having trouble with the error states and what not but I just enjoyed working with numbers, let me think where I can put my output function.
 
+Just got my calculations function to work. Everything was working fine on the console but did not work on on the DOM. I started over and tried another method but it broke more so I reverted back. Then I replaced my if sstatement with a ternary and guess what?!
 
+IT WORKS!
 ### Built with
 
 - Semantic HTML5 markup
