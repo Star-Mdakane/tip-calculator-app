@@ -51,6 +51,15 @@ Still I have not figured this app but I took the tip calculator and made it with
 For the inputs I used text inputs where I will havve to do a little tweaking for form validaton which I find better than having to work with number inputs.
 The outputs with also the button will depend on the availability of the inputs.
 
+After how many days, I think I was looking at this the wrong way. I don't know what I was trying was not working because I changed the Id of the form and my reset button did not match the value of the form's Id.
+I  think what was also affectng me this much was tryng to implement Object data validation.
+After a long rest, I just thought to myself, why am I fighting the form, the reset button is just a submit button for the form and upon success it will just have the method of reset(doing it's default).
+
+I am scraping everything I have done and lookig at a new approach but still I don't understand how I will implement the validate function or calculation functions if the only button is a submit button. Maybe I will stick to the blur or change, just at the moment don't know if the event handler has a change like onchange but it will be figured out. Let me start my project.
+
+Still having trouble with the error states and what not but I just enjoyed working with numbers, let me think where I can put my output function.
+
+
 ### Built with
 
 - Semantic HTML5 markup

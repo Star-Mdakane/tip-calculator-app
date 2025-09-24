@@ -22,13 +22,12 @@
       </div>
     </header>
     <div class="wrapper">
-      <form action="/" class="form" id="bill-container">
+      <form action="#" class="form" id="form" novalidate>
         <div class="form-group number">
           <label for="bill">Bill
             <div class="bill-amount-container inp">
               <img src="./images/icon-dollar.svg" alt="dollar icon">
-
-              <input type="text" class="bill" value="0" name="bill" id="bill">
+              <input type="text" class="bill" name="bill" id="bill" placeholder="0">
             </div>
           </label>
 
@@ -48,16 +47,15 @@
             <input type="radio" name="tip" value="50" id="50">
             <label for="50">50%</label>
             <input type="text" class="custom" name="tip" id="custom" min="1" max="100" placeholder="Custom">
-            <!-- <label for="custom"></label> -->
           </div>
         </fieldset>
 
         <div class="form-group number">
           <label for="people"> Number of People
-            <span aria-live="polite" role="alert"></span>
+            <span aria-live="polite" id="error" role="alert"></span>
             <div class="people-input inp">
               <img src="./images/icon-person.svg" alt="person icon">
-              <input type="text" class="people" value="0" name="people" id="people" required>
+              <input type="text" class="people" name="people" id="people" placeholder="0" required>
             </div>
           </label>
         </div>
@@ -74,8 +72,8 @@
                   / person
                 </p>
               </div>
-              <h2 id="tip-amount">
-                $0.00
+              <h2 id="tip-amount" value="$0.00">
+
               </h2>
             </div>
             <div class="total-amount">
@@ -87,13 +85,13 @@
                   / person
                 </p>
               </div>
-              <h2>
-                $0.00
+              <h2 id="total-amount" placeholder="$0.00">
+
               </h2>
             </div>
           </div>
           <div class="btn">
-            <button class="reset" form="bill-container">Reset</button>
+            <button class="reset" id="reset" form="form">Reset</button>
           </div>
         </div>
       </section>
